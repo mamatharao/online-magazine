@@ -1,0 +1,7 @@
+<h1>New Article</h1>
+<%= link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, articles_path,
+            { :class=>"btn btn-primary btn-add" } %>
+            <br>
+
+<%= render 'form', article: @article %>
+

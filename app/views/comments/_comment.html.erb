@@ -1,0 +1,9 @@
+  <% if !comment.body.nil? %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row date-time-link" title="Commented on" style="float: right;"><%= comment.created_at.strftime("%b %d, %Y at %I:%M%p") %></div>
+      <br>
+      <%= comment.body %>
+      </div>
+  </div>
+  <% end %>

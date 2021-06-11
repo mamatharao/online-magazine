@@ -1,0 +1,44 @@
+<p id="notice">
+  <% unless notice.nil? %>
+     <div class="alert alert-success">
+    <%= notice %>
+  </div>
+  <% end %>
+ 
+</p>
+
+<h1 class="center">Articles</h1>
+
+<%= link_to '<i class="fa fa-plus"></i> New Article'.html_safe, new_article_path,
+            { :class=>"btn btn-primary btn-add" } %>
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+      <tr>
+        <td width="25%" class="justify-text"><%= article.title %></td>
+        <td width='50%' class="justify-text"><%= article.body %></td>
+        <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, article, title: 'Show' %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_article_path(article), title: 'Edit' %></td>
+        <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, article, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete' %></td>
+      </tr>
+    <% end %>
+      
+    </tbody>
+  </table>
+
+
+
+<br>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+  $('#articles').DataTable();
+} );
+</script>
